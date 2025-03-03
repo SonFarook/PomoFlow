@@ -1,0 +1,167 @@
+﻿<Page
+    x:Class="PomoFlow.View.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:PomoFlow.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:project="clr-namespace:PomoFlow"
+    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+    Title="SettingsPage"
+    d:DesignHeight="186"
+    d:DesignWidth="242"
+    mc:Ignorable="d">
+    <Page.Resources>
+
+        <!--  using a converter, because the colorpicker is returning a color, not a brush  -->
+
+        <project:ColorToBrushConverter x:Key="ColorToBrushConverter" />
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+
+        <!--  Settings Text  -->
+
+        <TextBlock
+            Grid.Row="0"
+            FontSize="20"
+            Foreground="{DynamicResource BackgroundColor1}"
+            Text="Settings" />
+
+        <!--  Grid for the ColorPickers  -->
+
+        <Grid
+            Grid.Row="1"
+            Margin="0,10,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!--  Choose Background Color  -->
+
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="0,0,10,10"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                FontWeight="Regular"
+                Text="Background Color" />
+
+            <Button
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="0,0,0,9"
+                Background="{Binding BackgroundColor1, Converter={StaticResource ColorToBrushConverter}}"
+                Style="{StaticResource RectangleButton}" />
+
+            <xctk:ColorPicker
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="0,2,0,0"
+                SelectedColor="{Binding BackgroundColor1, Mode=TwoWay}" />
+
+            <!--  Choose Background Color  2  -->
+
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="0,0,10,10"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                FontWeight="Regular"
+                Text="Background Color II" />
+
+            <Button
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="0,0,0,9"
+                Background="{Binding BackgroundColor2, Converter={StaticResource ColorToBrushConverter}}"
+                Style="{StaticResource RectangleButton}" />
+
+            <xctk:ColorPicker
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="0,2,0,0"
+                SelectedColor="{Binding BackgroundColor2, Mode=Twoway}" />
+
+            <!--  Choose Foreground Color  -->
+
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="0"
+                Margin="0,0,10,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                FontWeight="Regular"
+                Text="Font Color" />
+            <Button
+                Grid.Row="2"
+                Grid.Column="1"
+                Margin="0,5,0,0"
+                Background="{Binding ForegroundColor, Converter={StaticResource ColorToBrushConverter}}"
+                Style="{StaticResource RectangleButton}" />
+
+            <xctk:ColorPicker
+                Grid.Row="2"
+                Grid.Column="1"
+                VerticalAlignment="Bottom"
+                SelectedColor="{Binding ForegroundColor, Mode=TwoWay}" />
+        </Grid>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+
+            <!--  Don't pick.... Text  -->
+
+            <TextBlock
+                Margin="8,0,0,0"
+                FontSize="11"
+                FontWeight="Regular"
+                Text="Don't pick Colors with low Contrast!" />
+
+            <!--  Reset Settings Button  -->
+
+            <Button
+                Margin="10,0,0,0"
+                Command="{Binding ResetButtonClicked}"
+                Focusable="False"
+                Style="{StaticResource SettingsPageBtn}">
+                <Path
+                    Width="15"
+                    Height="15"
+                    Data="M1821 4363 c-35 -17 -50 -39 -326 -466 -96 -150 -109 -175 -112 -220 -7 -96 4 -106 342 -324 165 -106 316 -197 335 -203 36 -9 89 -2 125 18 54 29 91 105 80 165 -12 64 -42 95 -166 176 l-120 78 62 7 c255 26 573 -35 819 -159 287 -144 549 -404 690 -685 159 -316 202 -709 114 -1049 -140 -542 -563 -964 -1108 -1106 -132 -34 -238 -46 -394 -46 -728 1 -1348 506 -1504 1224 -32 148 -32 446 0 593 40 187 111 364 204 511 50 80 61 119 49 175 -7 30 -22 54 -49 80 -79 73 -186 57 -256 -39 -55 -74 -160 -286 -201 -403 -312 -897 92 -1876 943 -2286 288 -139 537 -190 883 -181 228 6 349 26 541 90 979 328 1503 1389 1167 2364 -269 779 -1035 1292 -1864 1249 -71 -4 -140 -10 -153 -13 -19 -4 -9 15 60 123 80 123 83 130 83 186 -1 64 -19 97 -75 136 -40 27 -119 30 -169 5z"
+                    Fill="{StaticResource BackgroundColor1}"
+                    Opacity="1"
+                    Stretch="Uniform" />
+            </Button>
+
+            <!--  Save Settings Button  -->
+
+            <Button
+                Margin="2,0,0,0"
+                Command="{Binding SaveButtonClicked}"
+                Focusable="False"
+                Style="{StaticResource SettingsPageBtn}">
+                <Path
+                    Width="15"
+                    Height="15"
+                    Data="M488 4941 c-145 -47 -269 -174 -312 -320 -14 -49 -16 -259 -16 -2062 0 -1942 1 -2009 19 -2068 46 -147 172 -272 320 -315 49 -14 259 -16 2062 -16 1942 0 2009 1 2068 19 147 46 272 172 315 320 14 49 16 230 16 1723 0 1431 -2 1673 -14 1696 -18 33 -1002 1015 -1033 1031 -16 8 -493 11 -1695 10 -1594 0 -1676 -1 -1730 -18z m1112 -816 c0 -497 1 -516 21 -570 28 -74 100 -146 174 -174 55 -21 70 -21 765 -21 695 0 710 0 765 21 74 28 146 100 174 174 20 54 21 73 21 570 l0 515 122 0 123 0 437 -437 438 -438 0 -1555 c0 -897 -4 -1572 -10 -1594 -11 -49 -37 -85 -81 -111 -30 -18 -56 -20 -211 -23 l-178 -4 0 604 c0 522 -2 612 -16 659 -43 148 -168 274 -315 320 -58 18 -111 19 -1269 19 -1158 0 -1211 -1 -1269 -19 -147 -46 -272 -172 -315 -320 -14 -47 -16 -137 -16 -659 l0 -604 -177 4 c-158 3 -182 5 -213 24 -48 28 -78 75 -85 137 -3 29 -5 912 -3 1962 3 1889 3 1910 23 1944 25 42 62 71 106 81 19 4 249 8 512 9 l477 1 0 -515z m1600 35 l0 -480 -640 0 -640 0 0 480 0 480 640 0 640 0 0 -480z m504 -2410 c49 -11 85 -37 111 -81 19 -33 20 -55 23 -611 l3 -578 -1281 0 -1281 0 3 578 c3 556 4 578 23 611 25 42 62 71 106 81 48 11 2245 12 2293 0z"
+                    Fill="{StaticResource BackgroundColor1}"
+                    Stretch="Uniform" />
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>

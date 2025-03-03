@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "T38JF29IGak=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Ömer\\source\\repos\\PomoFlow\\PomoFlow\\PomoFlow.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Ömer\\.nuget\\packages\\extended.wpf.toolkit\\4.7.25103.5738\\extended.wpf.toolkit.4.7.25103.5738.nupkg.sha512",
+    "C:\\Users\\Ömer\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

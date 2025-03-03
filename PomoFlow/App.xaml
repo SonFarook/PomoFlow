@@ -1,0 +1,255 @@
+﻿<Application
+    x:Class="PomoFlow.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:PomoFlow"
+    xmlns:viewmodel="clr-namespace:PomoFlow.ViewModel"
+    xmlns:vm="clr-namespace:PomoFlow.ViewModel"
+    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+    StartupUri="View/MainWindow.xaml">
+    <Application.Resources>
+        <FontFamily x:Key="Sarabun">/Fonts/#Sarabun</FontFamily>
+
+        <!--  binding the colors from settings vm here, so the whole app can use them  -->
+        <x:Static x:Key="SettingsViewModel" Member="vm:SettingsViewModel.Instance" />
+        <SolidColorBrush x:Key="BackgroundColor1" Color="{Binding BackgroundColor1, Source={StaticResource SettingsViewModel}}" />
+        <SolidColorBrush x:Key="BackgroundColor2" Color="{Binding BackgroundColor2, Source={StaticResource SettingsViewModel}}" />
+        <SolidColorBrush x:Key="ForegroundColor" Color="{Binding ForegroundColor, Source={StaticResource SettingsViewModel}}" />
+
+        <!--  used a drawingimage for the pin window icon, because it was too complicated for a path  -->
+        <DrawingImage x:Key="PinWindowImage">
+            <DrawingImage.Drawing>
+                <DrawingGroup ClipGeometry="M0,0 V465 H471 V0 H0 Z">
+                    <DrawingGroup Opacity="1" Transform="0.1,0,0,-0.1,0,465">
+                        <GeometryDrawing Brush="{DynamicResource BackgroundColor2}" Geometry="F1 M471,465z M0,0z M3095,4565C3066,4555 3011,4506 2889,4383 2711,4202 2673,4148 2649,4032 2625,3915 2653,3757 2715,3666L2739,3631 2417,3401C2240,3275,2003,3107,1891,3027L1686,2881 1658,2901C1621,2928 1519,2973 1445,2996 1398,3011 1353,3015 1230,3015 1095,3015 1065,3012 1000,2992 821,2935 731,2869 463,2599 311,2445 280,2408 271,2373 245,2275 182,2345 1273,1253 2365,162 2295,225 2392,250 2429,260 2467,293 2643,468 2867,690 2921,757 2974,872 3029,992 3044,1067 3044,1215 3043,1326 3039,1358 3016,1435 3001,1485 2971,1558 2949,1598L2909,1671 3266,2173C3463,2449,3631,2685,3640,2697L3657,2719 3695,2693C3821,2608 4019,2597 4169,2668 4225,2695 4392,2840 4511,2967 4587,3047 4605,3090 4595,3158 4589,3204 4579,3214 3922,3873 3555,4241 3244,4547 3230,4555 3188,4577 3138,4581 3095,4565z" />
+                        <GeometryDrawing Brush="{DynamicResource BackgroundColor2}" Geometry="F1 M471,465z M0,0z M528,743C171,384 120,330 110,293 79,171 191,59 313,90 350,100 405,151 765,511L1175,920 1060,1035C997,1098 943,1150 940,1150 937,1150 752,967 528,743z" />
+                    </DrawingGroup>
+                </DrawingGroup>
+            </DrawingImage.Drawing>
+        </DrawingImage>
+
+        <!--  Minimize & Close Window Button Style  -->
+
+        <Style x:Key="WindowButton" TargetType="Button">
+            <Setter Property="Background" Value="{DynamicResource BackgroundColor1}" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Width" Value="45" />
+            <Setter Property="Height" Value="34" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                            x:Name="border"
+                            Width="45"
+                            Height="34"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="0">
+                            <ContentPresenter
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Content="{TemplateBinding Content}"
+                                ContentSource="Content" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource ForegroundColor}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!--  Settings Button Style  -->
+
+        <Style x:Key="MainWindowCheckBox" TargetType="CheckBox">
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Width" Value="25" />
+            <Setter Property="Height" Value="25" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="CheckBox">
+                        <Border
+                            Name="border"
+                            Padding="3"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="50">
+                            <ContentPresenter
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Content="{TemplateBinding Content}"
+                                ContentSource="Content" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger SourceName="border" Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="{DynamicResource ForegroundColor}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource ForegroundColor}" />
+                </Trigger>
+                <Trigger Property="IsChecked" Value="False">
+                    <Setter Property="Background" Value="Transparent" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!--  Main Page Label Style  -->
+
+        <Style x:Key="MainPageLabel" TargetType="Label">
+            <Setter Property="Margin" Value="0,15" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Width" Value="75" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Label">
+                        <Border
+                            Padding="5,4"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="10">
+                            <TextBlock
+                                Name="text"
+                                Height="Auto"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontFamily="{StaticResource Sarabun}"
+                                FontSize="12"
+                                FontWeight="Regular"
+                                Foreground="{DynamicResource BackgroundColor1}"
+                                Text="{TemplateBinding Content}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
+                                <Setter Property="Background" Value="{DynamicResource BackgroundColor1}" />
+                                <Setter TargetName="text" Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+                                <Setter TargetName="text" Property="FontWeight" Value="Bold" />
+                            </DataTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--  Main Page Button Style  -->
+
+        <Style x:Key="MainPageBtn" TargetType="Button">
+            <Setter Property="Width" Value="75" />
+            <Setter Property="Height" Value="25" />
+            <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+            <Setter Property="FontFamily" Value="{StaticResource Sarabun}" />
+            <Setter Property="Content" Value="Start" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="Opacity" Value="0.85" />
+            <Setter Property="Background" Value="{DynamicResource BackgroundColor1}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="5">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="5" ShadowDepth="1" />
+                            </Border.Effect>
+                            <ContentPresenter
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Content="{TemplateBinding Content}"
+                                ContentSource="Content" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="0.95" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!--  Default TextBlock Style  -->
+
+        <Style TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+            <Setter Property="FontFamily" Value="{StaticResource Sarabun}" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+
+        <!--  Settings Page Rectangle Button Style  -->
+
+        <Style x:Key="RectangleButton" TargetType="Button">
+            <Setter Property="BorderBrush" Value="{DynamicResource BackgroundColor1}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Width" Value="12" />
+            <Setter Property="Height" Value="12" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--  ColorPicker Style  -->
+
+        <Style TargetType="xctk:ColorPicker">
+            <Setter Property="Height" Value="13" />
+            <Setter Property="Width" Value="13" />
+            <Setter Property="Opacity" Value="0" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="ToolTip" Value="Click to choose a color :)" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Cursor" Value="Hand" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!--  Settings Page Button Style  -->
+
+        <Style x:Key="SettingsPageBtn" TargetType="Button">
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Width" Value="25" />
+            <Setter Property="Height" Value="25" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                            Name="border"
+                            Width="25"
+                            Height="25"
+                            Padding="2"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="50">
+                            <ContentPresenter
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Content="{TemplateBinding Content}"
+                                ContentSource="Content" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger SourceName="border" Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="{DynamicResource ForegroundColor}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Application.Resources>
+</Application>
