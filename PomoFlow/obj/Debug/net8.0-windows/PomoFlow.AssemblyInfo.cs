@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PomoFlow")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+31e528540d1d68d61047a4ccb8444182f160785a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c2b0b5f7642d2de508862dd70e1b5ecd5a1579a")]
 [assembly: System.Reflection.AssemblyProductAttribute("PomoFlow")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PomoFlow")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
