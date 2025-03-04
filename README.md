@@ -15,7 +15,8 @@ As someone who actively uses the Pomodoro technique, I wanted a more streamlined
 
 This project is built with **C# and WPF**, making it a lightweight yet powerful tool for productivity.  
 
-
+### Default Colors
 ![First Screenshot](Img/PomoFlowSS01.png) ![Second Screenshot](Img/PomoFlowSS02.png)
 
+### Example for customized Colors
 ![Third Screenshot](Img/PomoFlowSS03.png) ![4th Screenshot](Img/PomoFlowSS04.png)
