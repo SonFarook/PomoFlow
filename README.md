@@ -1,3 +1,5 @@
+![PomoFlow Icon](Img/PomoFlowLogo.png)
+
 # PomoFlow  
 
 PomoFlow is a project designed to simplify the use of the Pomodoro technique. It allows users to customize colors to their preference and eliminates the need to manually set timers on a phone.  
