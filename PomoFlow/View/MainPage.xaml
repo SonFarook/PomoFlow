@@ -47,7 +47,7 @@
             Grid.Row="2"
             Command="{Binding StartStopButtonClicked}"
             Content="{Binding StartStopButtonContent}"
-            Style="{StaticResource MainPageBtn}" />
+            Style="{StaticResource StartStopBtn}" />
 
 
         <!--  Pomodoro, Long Break, Short Break Text  -->

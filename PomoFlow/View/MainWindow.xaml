@@ -121,7 +121,10 @@
             <Border.Effect>
                 <DropShadowEffect BlurRadius="20" ShadowDepth="4" />
             </Border.Effect>
-            <Frame Name="MainFrame" NavigationUIVisibility="Hidden" />
+            <Frame
+                Name="MainFrame"
+                Focusable="False"
+                NavigationUIVisibility="Hidden" />
         </Border>
 
         <Grid Grid.Row="3">

@@ -138,21 +138,21 @@
             </Setter>
         </Style>
 
-        <!--  Main Page Button Style  -->
+        <!--  Start/Stop Button Style  -->
 
-        <Style x:Key="MainPageBtn" TargetType="Button">
+        <Style x:Key="StartStopBtn" TargetType="Button">
             <Setter Property="Width" Value="75" />
             <Setter Property="Height" Value="25" />
             <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
             <Setter Property="FontFamily" Value="{StaticResource Sarabun}" />
             <Setter Property="Content" Value="Start" />
-            <Setter Property="FontSize" Value="15" />
-            <Setter Property="Opacity" Value="0.85" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="Focusable" Value="False" />
             <Setter Property="Background" Value="{DynamicResource BackgroundColor1}" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" CornerRadius="5">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="12">
                             <Border.Effect>
                                 <DropShadowEffect BlurRadius="5" ShadowDepth="1" />
                             </Border.Effect>
@@ -167,7 +167,7 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Opacity" Value="0.95" />
+                    <Setter Property="Opacity" Value="0.9" />
                 </Trigger>
             </Style.Triggers>
         </Style>

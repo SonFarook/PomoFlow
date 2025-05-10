@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{5EF6C765-6004-4F3F-B208-E5757AFCB883}|PomoFlow\\PomoFlow.csproj|solutionrelative:pomoflow\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{5EF6C765-6004-4F3F-B208-E5757AFCB883}|PomoFlow\\PomoFlow.csproj|c:\\users\\\u00F6mer\\source\\repos\\pomoflow\\pomoflow\\view\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{5EF6C765-6004-4F3F-B208-E5757AFCB883}|PomoFlow\\PomoFlow.csproj|solutionrelative:pomoflow\\view\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5EF6C765-6004-4F3F-B208-E5757AFCB883}|PomoFlow\\PomoFlow.csproj|c:\\users\\\u00F6mer\\source\\repos\\pomoflow\\pomoflow\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{5EF6C765-6004-4F3F-B208-E5757AFCB883}|PomoFlow\\PomoFlow.csproj|solutionrelative:pomoflow\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
@@ -18,19 +22,33 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\\u00D6mer\\source\\repos\\PomoFlow\\PomoFlow\\View\\MainWindow.xaml",
               "RelativeDocumentMoniker": "PomoFlow\\View\\MainWindow.xaml",
               "ToolTip": "C:\\Users\\\u00D6mer\\source\\repos\\PomoFlow\\PomoFlow\\View\\MainWindow.xaml",
               "RelativeToolTip": "PomoFlow\\View\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-08T17:19:40.567Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-10T09:39:13.395Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainPage.xaml",
+              "DocumentMoniker": "C:\\Users\\\u00D6mer\\source\\repos\\PomoFlow\\PomoFlow\\View\\MainPage.xaml",
+              "RelativeDocumentMoniker": "PomoFlow\\View\\MainPage.xaml",
+              "ToolTip": "C:\\Users\\\u00D6mer\\source\\repos\\PomoFlow\\PomoFlow\\View\\MainPage.xaml",
+              "RelativeToolTip": "PomoFlow\\View\\MainPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-10T09:37:14.439Z"
             },
             {
               "$type": "Document",
@@ -41,12 +59,8 @@
               "ToolTip": "C:\\Users\\\u00D6mer\\source\\repos\\PomoFlow\\PomoFlow\\App.xaml",
               "RelativeToolTip": "PomoFlow\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-08T17:18:58.815Z",
+              "WhenOpened": "2025-04-02T07:30:08.304Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             }
           ]
         }
