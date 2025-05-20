@@ -53,7 +53,7 @@
 
                 <!--  Binding it because the .svg path was too complicated (check app ressources)  -->
 
-                <Image Source="{StaticResource PinWindowImage}" />
+                <Image Source="{StaticResource PinWindowIcon}" />
             </CheckBox>
 
             <!--  Upper Right Part  -->

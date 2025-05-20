@@ -19,6 +19,7 @@ namespace PomoFlow.ViewModel
         private readonly SoundPlayer _timerEndSound = new SoundPlayer(@"Sounds\TimerEndSound.wav");
 
         public ICommand StartStopButtonClicked { get; set; }
+        public ICommand SkipBreakButtonClicked { get; set; }
 
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
@@ -45,6 +46,7 @@ namespace PomoFlow.ViewModel
             _timer.Elapsed += OnTimedEvent;
 
             StartStopButtonClicked = new RelayCommand(ExecuteStartStopButtonClicked);
+            SkipBreakButtonClicked = new RelayCommand(ExecuteSkipBreakButtonClicked);
 
             SetDefaultValues();
         }
@@ -115,6 +117,17 @@ namespace PomoFlow.ViewModel
             }
         }
 
+        private bool _showSkipButton;
+        public bool ShowSkipButton
+        {
+            get => _showSkipButton;
+            set
+            {
+                _showSkipButton = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         private void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
@@ -166,7 +179,6 @@ namespace PomoFlow.ViewModel
 
             if (!_timerModel.IsRunning)
             {
-
                 if (!_timerModel.GotClickedBefore)
                 {
                     // if the button got clicked the first time, add one second (because the timer is dropping 1 second instantly)
@@ -182,6 +194,7 @@ namespace PomoFlow.ViewModel
                 _timerModel.IsRunning = true;
                 _timerModel.GotClickedBefore = true;
                 StartStopButtonContent = "Stop";
+                ShowSkipButton = true;
             }
 
             // if timer is active
@@ -191,6 +204,41 @@ namespace PomoFlow.ViewModel
                 _timer.Stop();
                 _timerModel.IsRunning = false;
                 StartStopButtonContent = "Start";
+                ShowSkipButton = false;
+            }
+        }
+
+        private void ExecuteSkipBreakButtonClicked()
+        {
+            _timerEndSound.Stop();
+            _buttonClickSound.Play();
+            ResetTimer();
+
+            if (_timerModel.IsBreakTime)
+            {
+                RemainingTime = "25:00";
+                _timerModel.IsBreakTime = !_timerModel.IsBreakTime;
+                ChangeSelectedLabel("Pomo");
+            }
+
+            else
+            {
+                _timerModel.IsBreakTime = !_timerModel.IsBreakTime;
+                _timerModel.PomoCounter++;
+                PomoCountText = "#" + _timerModel.PomoCounter.ToString();
+
+                if(_timerModel.PomoCounter % 4 == 0)
+                {
+                    RemainingTime = "15:00";
+                    ChangeSelectedLabel("LongBreak");
+
+                }
+
+                else
+                {
+                    RemainingTime = "05:00";
+                    ChangeSelectedLabel("ShortBreak");
+                }
             }
         }
 
@@ -202,6 +250,7 @@ namespace PomoFlow.ViewModel
             _timerModel.GotClickedBefore = false;
             _timerModel.IsRunning = false;
             _timerModel.ElapsedTime = TimeSpan.FromSeconds(0);
+            ShowSkipButton = false;
         }
 
         //starts or stops window blinking

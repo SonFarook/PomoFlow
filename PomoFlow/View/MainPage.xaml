@@ -41,14 +41,41 @@
         </TextBlock>
 
 
-        <!--  Button  -->
+        <!--  Start Stop Button  -->
 
         <Button
             Grid.Row="2"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
             Command="{Binding StartStopButtonClicked}"
             Content="{Binding StartStopButtonContent}"
             Style="{StaticResource StartStopBtn}" />
 
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!--  Skip Break Button  -->
+
+            <Button
+                Grid.Row="2"
+                Grid.Column="1"
+                Width="23"
+                Height="23"
+                Margin="8,0,0,0"
+                Command="{Binding SkipBreakButtonClicked}"
+                Style="{StaticResource SkipBreakBtn}"
+                Tag="{Binding ShowSkipButton}">
+                <Image
+                    Width="16"
+                    Height="16"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Source="{StaticResource SkipBreakIcon}" />
+            </Button>
+        </Grid>
 
         <!--  Pomodoro, Long Break, Short Break Text  -->
         <StackPanel

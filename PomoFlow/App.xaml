@@ -16,13 +16,25 @@
         <SolidColorBrush x:Key="BackgroundColor2" Color="{Binding BackgroundColor2, Source={StaticResource SettingsViewModel}}" />
         <SolidColorBrush x:Key="ForegroundColor" Color="{Binding ForegroundColor, Source={StaticResource SettingsViewModel}}" />
 
-        <!--  used a drawingimage for the pin window icon, because it was too complicated for a path  -->
-        <DrawingImage x:Key="PinWindowImage">
+        <!--  Pin Window Icon  -->
+        <DrawingImage x:Key="PinWindowIcon">
             <DrawingImage.Drawing>
                 <DrawingGroup ClipGeometry="M0,0 V465 H471 V0 H0 Z">
                     <DrawingGroup Opacity="1" Transform="0.1,0,0,-0.1,0,465">
                         <GeometryDrawing Brush="{DynamicResource BackgroundColor2}" Geometry="F1 M471,465z M0,0z M3095,4565C3066,4555 3011,4506 2889,4383 2711,4202 2673,4148 2649,4032 2625,3915 2653,3757 2715,3666L2739,3631 2417,3401C2240,3275,2003,3107,1891,3027L1686,2881 1658,2901C1621,2928 1519,2973 1445,2996 1398,3011 1353,3015 1230,3015 1095,3015 1065,3012 1000,2992 821,2935 731,2869 463,2599 311,2445 280,2408 271,2373 245,2275 182,2345 1273,1253 2365,162 2295,225 2392,250 2429,260 2467,293 2643,468 2867,690 2921,757 2974,872 3029,992 3044,1067 3044,1215 3043,1326 3039,1358 3016,1435 3001,1485 2971,1558 2949,1598L2909,1671 3266,2173C3463,2449,3631,2685,3640,2697L3657,2719 3695,2693C3821,2608 4019,2597 4169,2668 4225,2695 4392,2840 4511,2967 4587,3047 4605,3090 4595,3158 4589,3204 4579,3214 3922,3873 3555,4241 3244,4547 3230,4555 3188,4577 3138,4581 3095,4565z" />
                         <GeometryDrawing Brush="{DynamicResource BackgroundColor2}" Geometry="F1 M471,465z M0,0z M528,743C171,384 120,330 110,293 79,171 191,59 313,90 350,100 405,151 765,511L1175,920 1060,1035C997,1098 943,1150 940,1150 937,1150 752,967 528,743z" />
+                    </DrawingGroup>
+                </DrawingGroup>
+            </DrawingImage.Drawing>
+        </DrawingImage>
+
+        <!--  Skip  Break Icon  -->
+        <DrawingImage x:Key="SkipBreakIcon">
+            <DrawingImage.Drawing>
+                <DrawingGroup ClipGeometry="M0,0 V512 H512 V0 H0 Z">
+                    <DrawingGroup Opacity="1" Transform="0.1,0,0,-0.1,0,512">
+                        <GeometryDrawing Brush="{DynamicResource ForegroundColor}" Geometry="F1 M512,512z M0,0z M475,4277C369,4235 328,4141 378,4055 390,4036 637,3693 927,3293 1217,2893 1454,2562 1453,2558 1451,2554 1198,2213 890,1801 477,1249 327,1042 323,1016 311,942 367,863 447,841 498,826 1501,826 1552,840 1573,846 1603,862 1619,876 1663,912 2792,2472 2810,2520 2823,2555 2823,2565 2810,2600 2792,2648 1663,4208 1619,4244 1603,4258 1573,4274 1552,4280 1497,4295 514,4292 475,4277z" />
+                        <GeometryDrawing Brush="{DynamicResource ForegroundColor}" Geometry="F1 M512,512z M0,0z M2455,4278C2416,4264 2380,4236 2358,4202 2334,4166 2335,4094 2359,4054 2369,4037 2617,3694 2909,3292L3440,2561 2891,1827C2589,1423 2332,1078 2321,1059 2309,1040 2300,1012 2300,997 2300,929 2356,860 2428,840 2480,826 3482,826 3534,841 3555,847 3590,868 3611,888 3649,925 4758,2447 4785,2501 4804,2537 4804,2583 4785,2619 4758,2673 3649,4195 3611,4232 3590,4252 3555,4273 3534,4279 3481,4294 2497,4293 2455,4278z" />
                     </DrawingGroup>
                 </DrawingGroup>
             </DrawingImage.Drawing>
@@ -169,6 +181,23 @@
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Opacity" Value="0.9" />
                 </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!--  Skip Break Button Style  -->
+        <Style
+            x:Key="SkipBreakBtn"
+            BasedOn="{StaticResource StartStopBtn}"
+            TargetType="Button">
+            <Setter Property="Visibility" Value="Hidden" />
+            <Setter Property="Background" Value="Transparent" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="0.8" />
+                </Trigger>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="True">
+                    <Setter Property="Visibility" Value="Visible" />
+                </DataTrigger>
             </Style.Triggers>
         </Style>
 
