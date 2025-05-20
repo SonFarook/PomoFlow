@@ -128,12 +128,28 @@ namespace PomoFlow.ViewModel
             }
         }
 
+        private string _windowTitle;
+        public string WindowTitle
+        {
+            get => _windowTitle;
+            set
+            {
+                _windowTitle = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         private void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
             TimeSpan remainingTime = _timerModel.GetRemainingTime();
 
             RemainingTime = remainingTime.ToString(@"mm\:ss");
+
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                WindowTitle = RemainingTime;
+            });
 
             if (remainingTime.TotalSeconds <= 0)
             {   
@@ -163,7 +179,7 @@ namespace PomoFlow.ViewModel
                 }
                 ResetTimer();
                 _timerEndSound.Play();
-                WindowBlink(true);
+                WindowBlinkStart();
             }
         }
 
@@ -253,8 +269,7 @@ namespace PomoFlow.ViewModel
             ShowSkipButton = false;
         }
 
-        //starts or stops window blinking
-        public void WindowBlink(bool blinkMode)
+        public void WindowBlinkStart()
         {
             Application.Current.Dispatcher.Invoke(() =>
             {
@@ -262,14 +277,42 @@ namespace PomoFlow.ViewModel
                 if (mainWindow == null) return;
 
                 IntPtr hwnd = new WindowInteropHelper(mainWindow).Handle;
-                
+                IntPtr foregroundHwnd = GetForegroundWindow();
+
+                if (hwnd == foregroundHwnd)
+                {
+                    // window is active, return (dont blink)
+                    return;
+                }
 
                 FLASHWINFO fi = new FLASHWINFO
                 {
                     cbSize = (uint)Marshal.SizeOf(typeof(FLASHWINFO)),
-                    hwnd = hwnd, // re-using hwnd
-                    dwFlags = (uint)(blinkMode ? 2 : 0), // FLASHW_TRAY or FLASHW_STOP
-                    uCount = blinkMode ? uint.MaxValue : 0, // blink or stop
+                    hwnd = hwnd,
+                    dwFlags = 2, // FLASHW_TRAY
+                    uCount = uint.MaxValue,
+                    dwTimeout = 0
+                };
+
+                FlashWindowEx(ref fi);
+            });
+        }
+
+        public void WindowBlinkStop()
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                Window mainWindow = Application.Current.MainWindow;
+                if (mainWindow == null) return;
+
+                IntPtr hwnd = new WindowInteropHelper(mainWindow).Handle;
+
+                FLASHWINFO fi = new FLASHWINFO
+                {
+                    cbSize = (uint)Marshal.SizeOf(typeof(FLASHWINFO)),
+                    hwnd = hwnd,
+                    dwFlags = 0, // FLASHW_STOP
+                    uCount = 0,
                     dwTimeout = 0
                 };
 
@@ -313,7 +356,5 @@ namespace PomoFlow.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-
     }
 }

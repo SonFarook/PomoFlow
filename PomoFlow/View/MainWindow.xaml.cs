@@ -18,9 +18,9 @@ namespace PomoFlow.View
 
         public MainWindow()
         {
-            InitializeComponent();
-
             DataContext = timerViewModel;
+
+            InitializeComponent();
 
             // Navigate the MainFrame everytime the program starts to mainPage
             MainPage mainPage = new MainPage();
@@ -31,7 +31,7 @@ namespace PomoFlow.View
             this.StateChanged += MainWindow_StateChanged;
 
             //if this window gets active, stop the blink
-            this.Activated += (s, e) => timerViewModel.WindowBlink(false);
+            this.Activated += (s, e) => timerViewModel.WindowBlinkStop();
         }
 
         private void CloseWindowBtn_Clicked(object sender, RoutedEventArgs e)
