@@ -8,7 +8,7 @@ namespace PomoFlow.Models
 {
     public class TimerModel
     {
-        public TimeSpan PomoTime { get; set; } = TimeSpan.FromMinutes(25);
+        public TimeSpan PomoTime { get; set; } = TimeSpan.FromSeconds(3);
         public TimeSpan ShortBreakTime { get; set; } = TimeSpan.FromMinutes(5);
         public TimeSpan LongBreakTime { get; set; } = TimeSpan.FromMinutes(15);
         public TimeSpan ElapsedTime { get; set; }
@@ -21,18 +21,19 @@ namespace PomoFlow.Models
         public TimeSpan GetRemainingTime()
         {
             ElapsedTime = DateTime.Now - TimerStartTime;
-                if (!IsBreakTime)
-                {
-                    return PomoTime - ElapsedTime;
-                }
 
+            if (!IsBreakTime)
+            {
+                return PomoTime - ElapsedTime;
+            }
+
+            else
+            {
+                if (PomoCounter % 4 == 0)
+                    return LongBreakTime - ElapsedTime;
                 else
-                {
-                    if (PomoCounter % 4 == 0)
-                        return LongBreakTime - ElapsedTime;
-                    else
-                        return ShortBreakTime - ElapsedTime;
-                }
+                    return ShortBreakTime - ElapsedTime;
+            }
         }
     }
 }

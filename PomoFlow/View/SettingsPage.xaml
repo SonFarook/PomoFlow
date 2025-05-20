@@ -128,14 +128,14 @@
 
             <TextBlock
                 Margin="8,0,0,0"
-                FontSize="11"
-                FontWeight="Regular"
+                FontSize="10"
+                FontWeight="Bold"
                 Text="Don't pick Colors with low Contrast!" />
 
             <!--  Reset Settings Button  -->
 
             <Button
-                Margin="10,0,0,0"
+                Margin="15,0,0,0"
                 Command="{Binding ResetButtonClicked}"
                 Focusable="False"
                 Style="{StaticResource SettingsPageBtn}">

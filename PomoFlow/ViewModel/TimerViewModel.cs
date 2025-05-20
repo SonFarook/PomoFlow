@@ -262,7 +262,7 @@ namespace PomoFlow.ViewModel
                 if (mainWindow == null) return;
 
                 IntPtr hwnd = new WindowInteropHelper(mainWindow).Handle;
-                if (hwnd == GetForegroundWindow()) return; // stop blinking if window is active
+                
 
                 FLASHWINFO fi = new FLASHWINFO
                 {

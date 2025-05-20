@@ -1,6 +1,8 @@
 ﻿using PomoFlow.ViewModel;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Interop;
 
 namespace PomoFlow.View
 {
@@ -9,7 +11,10 @@ namespace PomoFlow.View
     /// </summary>
     public partial class MainWindow : Window
     {
-        TimerViewModel timerViewModel = new TimerViewModel();   
+        TimerViewModel timerViewModel = new TimerViewModel();
+
+        [DllImport("user32.dll")]
+        static extern IntPtr GetForegroundWindow();
 
         public MainWindow()
         {
@@ -17,17 +22,16 @@ namespace PomoFlow.View
 
             DataContext = timerViewModel;
 
-
-            //if active window is this, stop blinking
-            this.Activated += (s, e) => timerViewModel.WindowBlink(false);
-
             // Navigate the MainFrame everytime the program starts to mainPage
             MainPage mainPage = new MainPage();
 
             MainFrame.Navigate(mainPage);
 
             // Event handler for state changes
-            StateChanged += MainWindow_StateChanged;
+            this.StateChanged += MainWindow_StateChanged;
+
+            //if this window gets active, stop the blink
+            this.Activated += (s, e) => timerViewModel.WindowBlink(false);
         }
 
         private void CloseWindowBtn_Clicked(object sender, RoutedEventArgs e)
@@ -72,7 +76,7 @@ namespace PomoFlow.View
         {
             if (WindowState == WindowState.Minimized && Topmost)
             {
-                // if the window gets minimized and Topmost is true, then get it back
+                // if the window gets minimized and Topmost is true, then get it back opened
                 WindowState = WindowState.Normal;
             }
         }
