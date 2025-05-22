@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\\u00D6mer\\source\\repos\\PomoFlow\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5EF6C765-6004-4F3F-B208-E5757AFCB883}|PomoFlow\\PomoFlow.csproj|c:\\users\\\u00F6mer\\source\\repos\\pomoflow\\pomoflow\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{5EF6C765-6004-4F3F-B208-E5757AFCB883}|PomoFlow\\PomoFlow.csproj|solutionrelative:pomoflow\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EF6C765-6004-4F3F-B208-E5757AFCB883}|PomoFlow\\PomoFlow.csproj|c:\\users\\\u00F6mer\\source\\repos\\pomoflow\\pomoflow\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{5EF6C765-6004-4F3F-B208-E5757AFCB883}|PomoFlow\\PomoFlow.csproj|solutionrelative:pomoflow\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EF6C765-6004-4F3F-B208-E5757AFCB883}|PomoFlow\\PomoFlow.csproj|c:\\users\\\u00F6mer\\source\\repos\\pomoflow\\pomoflow\\models\\timermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EF6C765-6004-4F3F-B208-E5757AFCB883}|PomoFlow\\PomoFlow.csproj|solutionrelative:pomoflow\\models\\timermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5EF6C765-6004-4F3F-B208-E5757AFCB883}|PomoFlow\\PomoFlow.csproj|c:\\users\\\u00F6mer\\source\\repos\\pomoflow\\pomoflow\\viewmodel\\timerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5EF6C765-6004-4F3F-B208-E5757AFCB883}|PomoFlow\\PomoFlow.csproj|solutionrelative:pomoflow\\viewmodel\\timerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,20 +27,8 @@
       "RelativeMoniker": "D:0:0:{5EF6C765-6004-4F3F-B208-E5757AFCB883}|PomoFlow\\PomoFlow.csproj|solutionrelative:pomoflow\\view\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5EF6C765-6004-4F3F-B208-E5757AFCB883}|PomoFlow\\PomoFlow.csproj|c:\\users\\\u00F6mer\\source\\repos\\pomoflow\\pomoflow\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{5EF6C765-6004-4F3F-B208-E5757AFCB883}|PomoFlow\\PomoFlow.csproj|solutionrelative:pomoflow\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5EF6C765-6004-4F3F-B208-E5757AFCB883}|PomoFlow\\PomoFlow.csproj|c:\\users\\\u00F6mer\\source\\repos\\pomoflow\\pomoflow\\view\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{5EF6C765-6004-4F3F-B208-E5757AFCB883}|PomoFlow\\PomoFlow.csproj|solutionrelative:pomoflow\\view\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5EF6C765-6004-4F3F-B208-E5757AFCB883}|PomoFlow\\PomoFlow.csproj|c:\\users\\\u00F6mer\\source\\repos\\pomoflow\\pomoflow\\models\\timermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5EF6C765-6004-4F3F-B208-E5757AFCB883}|PomoFlow\\PomoFlow.csproj|solutionrelative:pomoflow\\models\\timermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5EF6C765-6004-4F3F-B208-E5757AFCB883}|PomoFlow\\PomoFlow.csproj|c:\\users\\\u00F6mer\\source\\repos\\pomoflow\\pomoflow\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{5EF6C765-6004-4F3F-B208-E5757AFCB883}|PomoFlow\\PomoFlow.csproj|solutionrelative:pomoflow\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,7 +46,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\\u00D6mer\\source\\repos\\PomoFlow\\PomoFlow\\View\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "PomoFlow\\View\\MainWindow.xaml.cs",
@@ -54,62 +54,59 @@
               "RelativeToolTip": "PomoFlow\\View\\MainWindow.xaml.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAxwCEAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T09:36:09.955Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-20T09:36:09.955Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "SettingsPage.xaml",
               "DocumentMoniker": "C:\\Users\\\u00D6mer\\source\\repos\\PomoFlow\\PomoFlow\\View\\SettingsPage.xaml",
               "RelativeDocumentMoniker": "PomoFlow\\View\\SettingsPage.xaml",
               "ToolTip": "C:\\Users\\\u00D6mer\\source\\repos\\PomoFlow\\PomoFlow\\View\\SettingsPage.xaml",
               "RelativeToolTip": "PomoFlow\\View\\SettingsPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-20T09:34:02.17Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-20T09:34:02.17Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "TimerModel.cs",
               "DocumentMoniker": "C:\\Users\\\u00D6mer\\source\\repos\\PomoFlow\\PomoFlow\\Models\\TimerModel.cs",
               "RelativeDocumentMoniker": "PomoFlow\\Models\\TimerModel.cs",
               "ToolTip": "C:\\Users\\\u00D6mer\\source\\repos\\PomoFlow\\PomoFlow\\Models\\TimerModel.cs",
               "RelativeToolTip": "PomoFlow\\Models\\TimerModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-18T15:00:00.004Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "TimerViewModel.cs",
               "DocumentMoniker": "C:\\Users\\\u00D6mer\\source\\repos\\PomoFlow\\PomoFlow\\ViewModel\\TimerViewModel.cs",
               "RelativeDocumentMoniker": "PomoFlow\\ViewModel\\TimerViewModel.cs",
               "ToolTip": "C:\\Users\\\u00D6mer\\source\\repos\\PomoFlow\\PomoFlow\\ViewModel\\TimerViewModel.cs",
               "RelativeToolTip": "PomoFlow\\ViewModel\\TimerViewModel.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAmwDoAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADoAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-18T13:37:15.137Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "MainPage.xaml",
               "DocumentMoniker": "C:\\Users\\\u00D6mer\\source\\repos\\PomoFlow\\PomoFlow\\View\\MainPage.xaml",
               "RelativeDocumentMoniker": "PomoFlow\\View\\MainPage.xaml",
               "ToolTip": "C:\\Users\\\u00D6mer\\source\\repos\\PomoFlow\\PomoFlow\\View\\MainPage.xaml",
               "RelativeToolTip": "PomoFlow\\View\\MainPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-10T09:37:14.439Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-10T09:37:14.439Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\\u00D6mer\\source\\repos\\PomoFlow\\PomoFlow\\View\\MainWindow.xaml",
               "RelativeDocumentMoniker": "PomoFlow\\View\\MainWindow.xaml",
@@ -121,7 +118,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "App.xaml",
               "DocumentMoniker": "C:\\Users\\\u00D6mer\\source\\repos\\PomoFlow\\PomoFlow\\App.xaml",
               "RelativeDocumentMoniker": "PomoFlow\\App.xaml",

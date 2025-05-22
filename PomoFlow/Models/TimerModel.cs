@@ -8,7 +8,7 @@ namespace PomoFlow.Models
 {
     public class TimerModel
     {
-        public TimeSpan PomoTime { get; set; } = TimeSpan.FromSeconds(3);
+        public TimeSpan PomoTime { get; set; } = TimeSpan.FromMinutes(25);
         public TimeSpan ShortBreakTime { get; set; } = TimeSpan.FromMinutes(5);
         public TimeSpan LongBreakTime { get; set; } = TimeSpan.FromMinutes(15);
         public TimeSpan ElapsedTime { get; set; }

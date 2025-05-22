@@ -40,9 +40,9 @@
             </DrawingImage.Drawing>
         </DrawingImage>
 
-        <!--  Minimize & Close Window Button Style  -->
+        <!--  Close Window Button Style  -->
 
-        <Style x:Key="WindowButton" TargetType="Button">
+        <Style x:Key="CloseWindowButton" TargetType="Button">
             <Setter Property="Background" Value="{DynamicResource BackgroundColor1}" />
             <Setter Property="BorderBrush" Value="Transparent" />
             <Setter Property="Width" Value="45" />
@@ -58,7 +58,7 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Background="{TemplateBinding Background}"
-                            CornerRadius="0">
+                            CornerRadius="0,10,0,0">
                             <ContentPresenter
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
@@ -73,6 +73,23 @@
                     <Setter Property="Background" Value="{DynamicResource ForegroundColor}" />
                 </Trigger>
             </Style.Triggers>
+        </Style>
+
+        <!--  Minimize Window Button Style  -->
+
+        <Style
+            x:Key="MinimizeWindowButton"
+            BasedOn="{StaticResource CloseWindowButton}"
+            TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
 
         <!--  Settings Button Style  -->
