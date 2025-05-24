@@ -39,18 +39,6 @@ namespace PomoFlow.ViewModel
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public TimerViewModel()
-        {
-            _timerModel = new TimerModel();
-            _timer = new System.Timers.Timer(100);
-            _timer.Elapsed += OnTimedEvent;
-
-            StartStopButtonClicked = new RelayCommand(ExecuteStartStopButtonClicked);
-            SkipBreakButtonClicked = new RelayCommand(ExecuteSkipBreakButtonClicked);
-
-            SetDefaultValues();
-        }
-
         private string _startStopButtonContent;
         public string StartStopButtonContent
         {
@@ -128,28 +116,23 @@ namespace PomoFlow.ViewModel
             }
         }
 
-        private string _windowTitle;
-        public string WindowTitle
+        public TimerViewModel()
         {
-            get => _windowTitle;
-            set
-            {
-                _windowTitle = value;
-                OnPropertyChanged();
-            }
-        }
+            _timerModel = new TimerModel();
+            _timer = new System.Timers.Timer(100);
+            _timer.Elapsed += OnTimedEvent;
 
+            StartStopButtonClicked = new RelayCommand(ExecuteStartStopButtonClicked);
+            SkipBreakButtonClicked = new RelayCommand(ExecuteSkipBreakButtonClicked);
+
+            SetDefaultValues();
+        }
 
         private void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
             TimeSpan remainingTime = _timerModel.GetRemainingTime();
 
             RemainingTime = remainingTime.ToString(@"mm\:ss");
-
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                WindowTitle = RemainingTime;
-            });
 
             if (remainingTime.TotalSeconds <= 0)
             {   
