@@ -36,7 +36,10 @@
             FontSize="50"
             Text="{Binding RemainingTime}">
             <TextBlock.Effect>
-                <DropShadowEffect BlurRadius="12" ShadowDepth="1" />
+                <DropShadowEffect
+                    BlurRadius="12"
+                    Direction="315"
+                    ShadowDepth="3" />
             </TextBlock.Effect>
         </TextBlock>
 
